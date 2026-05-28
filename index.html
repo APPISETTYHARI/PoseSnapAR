@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#080808">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="PoseSnap AR — Match pose guides with your body using AI skeleton tracking">
+  <title>PoseSnap AR</title>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+
+<!-- LOADING -->
+<div id="loadScreen">
+  <div class="ld-title"><b>POSE</b> SNAP</div>
+  <div class="ld-sub">AR Skeleton Guide</div>
+  <div class="ld-bar"><div class="ld-fill" id="ldFill"></div></div>
+  <div id="ldMsg">Starting up...</div>
+</div>
+
+<!-- HOME -->
+<div id="homeScreen">
+  <div class="h-title"><span>POSE</span> SNAP</div>
+  <div class="h-sub">AR Skeleton · Match the guide</div>
+  <div class="section-lbl">Where are you shooting?</div>
+  <div class="grid" id="placeGrid"></div>
+</div>
+
+<!-- CAMERA -->
+<div id="camScreen">
+  <video id="video" autoplay playsinline muted></video>
+  <canvas id="canvas"></canvas>
+
+  <div id="topBar">
+    <button class="ico-btn" id="backBtn">←</button>
+    <div id="placeChip">Beach</div>
+    <button class="ico-btn" id="flipBtn">🔄</button>
+  </div>
+
+  <div id="matchRow">
+    <div id="matchPct">0%</div>
+    <div id="mBarBg"><div id="mBarFill"></div></div>
+    <div id="matchTag">Match</div>
+  </div>
+
+  <div id="matchBurst"><div class="burst-ring">✓</div></div>
+
+  <div id="legend">
+    <div class="leg-item"><div class="leg-line target"></div>TARGET</div>
+    <div class="leg-item"><div class="leg-line user"></div>YOU</div>
+  </div>
+
+  <!-- Capture button -->
+  <button id="captureBtn">📸</button>
+
+  <div id="poseCard">
+    <div class="handle" id="hdl"></div>
+    <div class="pdots" id="pdots"></div>
+    <div id="poseEmoji">🏆</div>
+    <div id="poseName">Victory Arms</div>
+    <div id="poseHint">Raise both arms up into a big V shape!</div>
+    <div class="nav-row">
+      <button class="nav-btn" id="prevBtn">‹</button>
+      <button class="nav-btn" id="nextBtn">NEXT POSE →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Flash overlay for capture -->
+<div id="flashOverlay"></div>
+
+<!-- Toast notification -->
+<div id="toast"></div>
+
+<!-- TF.js + MoveNet (CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection@2.1.3/dist/pose-detection.min.js"></script>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

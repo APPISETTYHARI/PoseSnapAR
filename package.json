@@ -1,0 +1,25 @@
+{
+  "name": "pose-snap",
+  "version": "1.0.0",
+  "description": "PoseSnap AR — Match pose guides with AI skeleton tracking",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "pose",
+    "ar",
+    "camera",
+    "tensorflow"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@capacitor/android": "^8.3.4",
+    "@capacitor/cli": "^8.3.4",
+    "@capacitor/core": "^8.3.4",
+    "vite": "^8.0.14"
+  }
+}
